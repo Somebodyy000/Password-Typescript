@@ -1,7 +1,7 @@
 interface PasswordGeneratorProps {
-  type: 'all' | 'l' | 'ln' | 'ls' | 'ns',
-  size: number,
-  quantity: number,
+  type: 'all' | 'l' | 'ln' | 'ls' | 'ns',      // type of the password, ALL = letters, symbols and numbers, L = letters, LN = letters and numbers, LS = letters and symbols, NS = numbers and symbols
+  size: number,                                // size of the password
+  quantity: number,                            // quantity of different passwords to create
 }
 
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -12,6 +12,18 @@ const all = [...letters, ...numbers, ...symbols];
 const ln = [...letters, ...numbers];
 const ls = [...letters, ...symbols];
 const ns = [...numbers, ...symbols];
+
+/* example: 
+
+input:  generatePassword(all, 12, 5);
+
+output: 939eT3QHk2rX
+        d9HAK9QT4nrj
+        8!!ryIGzVgN
+        h!#emvY9xsDE
+        a2gzyP@aOG7j
+        'Finished 5 options of passwords with 12 characters'
+*/
 
 const generatePassword = ({ type, size, quantity }: PasswordGeneratorProps): string[] => {
     let password = [];
